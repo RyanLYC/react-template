@@ -1,6 +1,6 @@
-import * as React from "react";
-import image from "@/assets/images/1.jpeg";
-import "./index.less";
+import * as React from 'react';
+import image from '@/assets/images/1.jpeg';
+import './index.less';
 
 const App: React.FC = () => {
   return (
