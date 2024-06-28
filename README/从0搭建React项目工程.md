@@ -157,15 +157,29 @@ pnpm add husky -D
 pnpm add lint-staged -D
 ```
 
+commit-msg文件
+
+```ini
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx --no-install commitlint --edit $1
+
+```
+
+pre-commit文件
+
+```ini
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx lint-staged
+
+```
+
 根目录 package.json 中增加以下内容：
 
 ```json
-"husky": {
-    "hooks": {
-        "pre-commit": "lint-staged",
-        "commit-msg": "commitlint --config .commitlintrc.js -E HUSKY_GIT_PARAMS"
-    }
-},
 "lint-staged": {
     "*.{ts,tsx,js}": [
         "eslint --config .eslintrc.js"
